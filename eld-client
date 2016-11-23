@@ -77,7 +77,7 @@ until [ $success -eq 0 ]; do
 
     (
         # send the ticket
-        tail -n1 "$portfile"
+        # tail -n1 "$portfile"
 
         # command line arguments
         for var; do

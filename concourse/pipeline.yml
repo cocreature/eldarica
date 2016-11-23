@@ -4,6 +4,12 @@ resources:
   source:
     uri: https://github.com/cocreature/eldarica.git
     branch: docker
+- name: eldarica-image
+  type: docker-image
+  source:
+    repository: cocreature/eldarica
+    username: {{docker-username}}
+    password: {{docker-password}}
 jobs:
 - name: build-eldarica-docker
   serial: true
@@ -20,6 +26,9 @@ jobs:
       inputs:
         - name: eldarica-git
       outputs:
-        - name: lazabs
+        - name: eldarica-jar
       run:
         path: eldarica-git/concourse/build.sh
+  - put: eldarica-image
+    params:
+      build: concourse
