@@ -4,4 +4,4 @@ RUN apt-get update && \
     apt-get install -y \
       openjdk-8-jre-headless && \
     rm -rf /var/lib/apt/lists/*
-ADD ../../eldarica-jar/lazabs.jar /eldarica/lazabs.jar
+ADD lazabs.jar /eldarica/lazabs.jar

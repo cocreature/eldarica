@@ -26,9 +26,9 @@ jobs:
       inputs:
         - name: eldarica-git
       outputs:
-        - name: eldarica-jar
+        - name: eldarica-jar-docker
       run:
         path: eldarica-git/concourse/build.sh
   - put: eldarica-image
     params:
-      build: eldarica-git/concourse
+      build: eldarica-jar-docker
