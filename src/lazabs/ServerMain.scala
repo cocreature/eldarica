@@ -51,7 +51,7 @@ object ServerMain {
 
     val socket =
       new ServerSocket(predefPort getOrElse 0, MaxWaitNum,
-        InetAddress getByName "localhost")
+        InetAddress getByName "0.0.0.0")
     val port = socket.getLocalPort
 
     Console.withOut(Console.err) {
