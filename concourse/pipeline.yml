@@ -1,0 +1,25 @@
+resources:
+- name: eldarica-git
+  type: git
+  source:
+    uri: https://github.com/cocreature/eldarica.git
+    branch: docker
+jobs:
+- name: build-eldarica-docker
+  serial: true
+  plan:
+  - get: eldarica-git
+    trigger: true
+  - task: build-eldarica
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: cocreature/eldarica_build
+      inputs:
+        - name: eldarica-git
+      outputs:
+        - name: lazabs
+      run:
+        path: eldarica-git/concourse/build.sh
