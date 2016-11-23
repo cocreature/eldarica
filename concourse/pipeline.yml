@@ -31,4 +31,4 @@ jobs:
         path: eldarica-git/concourse/build.sh
   - put: eldarica-image
     params:
-      build: concourse
+      build: eldarica-git/concourse
